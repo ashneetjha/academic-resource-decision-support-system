@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+
+/* ─── ARIA Design Tokens ──────────────────────────────────────── */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --border-color: rgba(124, 58, 237, 0.12);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --purple-start: #7c3aed;
+  --purple-end: #a855f7;
+  --accent-blue: #3b82f6;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #f43f5e;
+  --glow-purple: 0 0 24px rgba(168, 85, 247, 0.25);
+  --glow-blue: 0 0 24px rgba(59, 130, 246, 0.2);
+}
+
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: rgba(30, 41, 59, 0.7);
+  --border-color: rgba(168, 85, 247, 0.2);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --glow-purple: 0 0 32px rgba(168, 85, 247, 0.35);
+}
+
+/* ─── Base ────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  border-color: var(--border-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.6);
+}
+
+/* ─── Glass Panel ─────────────────────────────────────────────── */
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+.glass-strong {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+/* ─── Gradient Text ───────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #7c3aed, #a855f7, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+}
+
+/* ─── Glow Effects ────────────────────────────────────────────── */
+.glow-purple {
+  box-shadow: var(--glow-purple);
+}
+
+.hover-glow {
+  transition: all 0.2s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: var(--glow-purple);
+  transform: translateY(-1px);
+}
+
+/* ─── Severity Badges ─────────────────────────────────────────── */
+.badge-low {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge-medium {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.badge-high {
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+/* ─── Animated Blob ───────────────────────────────────────────── */
+.blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: blob-morph 8s ease-in-out infinite;
+}
+
+.blob-2 {
+  border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+  animation: blob-morph 10s ease-in-out infinite reverse;
+}
+
+@keyframes blob-morph {
+
+  0%,
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    transform: rotate(0deg) scale(1);
+  }
+
+  33% {
+    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    transform: rotate(120deg) scale(1.05);
+  }
+
+  66% {
+    border-radius: 50% 50% 30% 70% / 30% 50% 50% 70%;
+    transform: rotate(240deg) scale(0.97);
+  }
+}
+
+/* ─── Pulse Dot ───────────────────────────────────────────────── */
+.pulse-dot {
+  animation: pulse-dot-anim 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot-anim {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
+}
+
+/* ─── Typing Indicator ────────────────────────────────────────── */
+.typing-dot {
+  animation: typing-bounce 1.2s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* ─── Focus Ring ──────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Sidebar Nav Item ────────────────────────────────────────── */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background: rgba(124, 58, 237, 0.1);
+  color: #a855f7;
+}
+
+.nav-item.active {
+  background: rgba(124, 58, 237, 0.15);
+  color: #a855f7;
+  box-shadow: inset 0 0 0 1px rgba(168, 85, 247, 0.2);
+}
+
+/* ─── Animation utilities ─────────────────────────────────────── */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.35s ease forwards;
+}
+
+/* ─── Count-up shimmer ────────────────────────────────────────── */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f8fafc 50%, #e2e8f0 75%);
+  background-size: 200% auto;
+  animation: shimmer 1.5s linear infinite;
+}
+
+.dark .shimmer {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% auto;
+}
+
+/* ─── D3 Graph styles ─────────────────────────────────────────── */
+.node-alert circle {
+  fill: rgba(244, 63, 94, 0.2);
+  stroke: #f43f5e;
+}
+
+.node-forecast circle {
+  fill: rgba(59, 130, 246, 0.2);
+  stroke: #3b82f6;
+}
+
+.node-proposal circle {
+  fill: rgba(168, 85, 247, 0.2);
+  stroke: #a855f7;
+}
+
+.node-decision circle {
+  fill: rgba(16, 185, 129, 0.2);
+  stroke: #10b981;
+}
+
+.node-feedback circle {
+  fill: rgba(245, 158, 11, 0.2);
+  stroke: #f59e0b;
+}
+
+.graph-link {
+  stroke: rgba(124, 58, 237, 0.3);
+  stroke-width: 1.5px;
+  fill: none;
+}
+
+.node text {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  fill: var(--text-secondary);
+}
+
+/* ─── Reduced glow for institutional credibility ─────────────────── */
+:root {
+  --glow-purple: 0 0 16px rgba(168, 85, 247, 0.18);
+  --glow-blue: 0 0 16px rgba(59, 130, 246, 0.14);
+}
+
+.dark {
+  --bg-primary: #0a0f1e;
+  --bg-secondary: #111827;
+  --bg-card: rgba(17, 24, 39, 0.75);
+  --glow-purple: 0 0 20px rgba(168, 85, 247, 0.22);
+}
+
+/* ─── Hide scrollbar utility ─────────────────────────────────────── */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Count-up animation ─────────────────────────────────────────── */
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count-up {
+  animation: count-up 0.5s ease forwards;
+}
+
+/* ─── Responsive: mobile stack ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .glass {
+    border-radius: 0.75rem;
+  }
+
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ─── Prevent horizontal overflow ────────────────────────────────── */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ─── Typography refinements ─────────────────────────────────────── */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.01em;
+}

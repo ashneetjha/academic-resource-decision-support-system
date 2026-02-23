@@ -1,0 +1,510 @@
+{
+    "alerts": [
+        {
+            "id": "ALT-001",
+            "type": "capacity_overflow",
+            "severity": "high",
+            "message": "CS401 projected to exceed room capacity by 34% in Fall semester",
+            "course": "CS401",
+            "timestamp": "2026-02-23T01:00:00Z",
+            "details": {
+                "current_enrollment": 89,
+                "room_capacity": 66,
+                "agent": "ORACLE",
+                "confidence": 0.92
+            }
+        },
+        {
+            "id": "ALT-002",
+            "type": "faculty_conflict",
+            "severity": "medium",
+            "message": "Prof. Sharma double-booked for MBA702 and CS301 on Tuesday 14:00",
+            "course": "MBA702",
+            "timestamp": "2026-02-23T00:45:00Z",
+            "details": {
+                "faculty": "Prof. Sharma",
+                "conflicting_courses": [
+                    "MBA702",
+                    "CS301"
+                ],
+                "slot": "Tuesday 14:00",
+                "agent": "ARBITER"
+            }
+        },
+        {
+            "id": "ALT-003",
+            "type": "resource_underutilised",
+            "severity": "low",
+            "message": "Lab LB-204 utilisation at 18% — consider reallocation",
+            "course": null,
+            "timestamp": "2026-02-22T23:30:00Z",
+            "details": {
+                "lab": "LB-204",
+                "utilisation": 0.18,
+                "agent": "ORACLE"
+            }
+        },
+        {
+            "id": "ALT-004",
+            "type": "enrollment_surge",
+            "severity": "high",
+            "message": "AI-ML elective registrations 212% above historical baseline",
+            "course": "AI-501",
+            "timestamp": "2026-02-22T22:00:00Z",
+            "details": {
+                "baseline": 45,
+                "current": 140,
+                "agent": "ORACLE",
+                "confidence": 0.87
+            }
+        }
+    ],
+    "forecasts": [
+        {
+            "ds": "2026-03-01",
+            "yhat": 1240,
+            "yhat_lower": 1180,
+            "yhat_upper": 1300,
+            "course": "CS401"
+        },
+        {
+            "ds": "2026-04-01",
+            "yhat": 1310,
+            "yhat_lower": 1245,
+            "yhat_upper": 1375,
+            "course": "CS401"
+        },
+        {
+            "ds": "2026-05-01",
+            "yhat": 1290,
+            "yhat_lower": 1220,
+            "yhat_upper": 1360,
+            "course": "CS401"
+        },
+        {
+            "ds": "2026-06-01",
+            "yhat": 1350,
+            "yhat_lower": 1275,
+            "yhat_upper": 1425,
+            "course": "CS401"
+        },
+        {
+            "ds": "2026-07-01",
+            "yhat": 1420,
+            "yhat_lower": 1340,
+            "yhat_upper": 1500,
+            "course": "CS401"
+        },
+        {
+            "ds": "2026-08-01",
+            "yhat": 1480,
+            "yhat_lower": 1395,
+            "yhat_upper": 1565,
+            "course": "CS401"
+        },
+        {
+            "ds": "2026-03-01",
+            "yhat": 840,
+            "yhat_lower": 800,
+            "yhat_upper": 880,
+            "course": "MBA702"
+        },
+        {
+            "ds": "2026-04-01",
+            "yhat": 870,
+            "yhat_lower": 825,
+            "yhat_upper": 915,
+            "course": "MBA702"
+        },
+        {
+            "ds": "2026-05-01",
+            "yhat": 910,
+            "yhat_lower": 860,
+            "yhat_upper": 960,
+            "course": "MBA702"
+        },
+        {
+            "ds": "2026-06-01",
+            "yhat": 950,
+            "yhat_lower": 895,
+            "yhat_upper": 1005,
+            "course": "MBA702"
+        },
+        {
+            "ds": "2026-07-01",
+            "yhat": 990,
+            "yhat_lower": 930,
+            "yhat_upper": 1050,
+            "course": "MBA702"
+        },
+        {
+            "ds": "2026-08-01",
+            "yhat": 1030,
+            "yhat_lower": 965,
+            "yhat_upper": 1095,
+            "course": "MBA702"
+        }
+    ],
+    "proposals": [
+        {
+            "id": "PROP-001",
+            "rank": 1,
+            "resource": "Classroom CR-302",
+            "summary": "Upgrade CS401 to CR-302 (capacity 120) and add one additional Tuesday 16:00 section",
+            "tradeoff": "Higher room cost (+12%) but eliminates capacity overflow and improves student satisfaction by ~18%",
+            "predicted_impact": {
+                "utilisation_delta": 0.22,
+                "conflict_reduction": 2,
+                "cost_change": 0.12
+            },
+            "status": "pending"
+        },
+        {
+            "id": "PROP-002",
+            "rank": 2,
+            "resource": "Faculty Reallocation",
+            "summary": "Assign Dr. Patel (available Tuesdays) to MBA702, resolving Prof. Sharma double-booking",
+            "tradeoff": "Slight student preference shift (-5%) but full conflict elimination and faculty workload balance",
+            "predicted_impact": {
+                "utilisation_delta": 0.05,
+                "conflict_reduction": 3,
+                "cost_change": 0.0
+            },
+            "status": "pending"
+        },
+        {
+            "id": "PROP-003",
+            "rank": 3,
+            "resource": "Lab LB-204",
+            "summary": "Convert LB-204 from general lab to AI-ML specialised lab to support AI-501 surge",
+            "tradeoff": "One-time conversion cost (₹2.4L) offset by 3-year projected efficiency gain of 34%",
+            "predicted_impact": {
+                "utilisation_delta": 0.61,
+                "conflict_reduction": 1,
+                "cost_change": -0.08
+            },
+            "status": "pending"
+        }
+    ],
+    "metrics": {
+        "active_alerts": 4,
+        "high_severity_alerts": 2,
+        "forecasted_demand_change": 18.4,
+        "conflict_resolution_rate": 0.87,
+        "recommendation_acceptance_rate": 0.74
+    },
+    "institutionHealthScore": {
+        "overall": 81,
+        "forecast_accuracy": 88,
+        "conflict_load": 74,
+        "utilisation_variance": 79,
+        "acceptance_rate": 83
+    },
+    "agentTimeline": [
+        {
+            "id": "EVT-001",
+            "agent": "SENTINEL",
+            "timestamp": "2026-02-23T00:00:00Z",
+            "duration_ms": 340,
+            "severity": "high",
+            "decision_type": "anomaly_detection",
+            "snapshot": {
+                "alerts_raised": 4,
+                "threshold_breaches": 2,
+                "data_sources_scanned": 12
+            }
+        },
+        {
+            "id": "EVT-002",
+            "agent": "ORACLE",
+            "timestamp": "2026-02-23T00:00:34Z",
+            "duration_ms": 1820,
+            "severity": "medium",
+            "decision_type": "demand_forecast",
+            "snapshot": {
+                "prophet_mape": 4.2,
+                "lstm_mape": 5.1,
+                "courses_forecasted": 18,
+                "horizon_weeks": 26
+            }
+        },
+        {
+            "id": "EVT-003",
+            "agent": "ARBITER",
+            "timestamp": "2026-02-23T00:02:06Z",
+            "duration_ms": 970,
+            "severity": "medium",
+            "decision_type": "conflict_resolution",
+            "snapshot": {
+                "conflicts_detected": 3,
+                "conflicts_resolved": 2,
+                "algorithm": "DSatur",
+                "proposals_generated": 3
+            }
+        },
+        {
+            "id": "EVT-004",
+            "agent": "HERMES",
+            "timestamp": "2026-02-23T00:03:16Z",
+            "duration_ms": 680,
+            "severity": "low",
+            "decision_type": "explanation_synthesis",
+            "snapshot": {
+                "rag_sources_retrieved": 7,
+                "guardrail_triggers": 0,
+                "explanations_generated": 3
+            }
+        },
+        {
+            "id": "EVT-005",
+            "agent": "ADMIN",
+            "timestamp": "2026-02-23T09:15:00Z",
+            "duration_ms": 0,
+            "severity": "low",
+            "decision_type": "human_review",
+            "snapshot": {
+                "proposals_reviewed": 3,
+                "accepted": 1,
+                "rejected": 0,
+                "deferred": 2
+            }
+        },
+        {
+            "id": "EVT-006",
+            "agent": "ADAPT",
+            "timestamp": "2026-02-23T09:15:42Z",
+            "duration_ms": 2200,
+            "severity": "low",
+            "decision_type": "preference_update",
+            "snapshot": {
+                "rlhf_epoch": 47,
+                "reward_delta": 0.031,
+                "weight_updates": {
+                    "utilisation": 0.01,
+                    "cost": -0.005
+                }
+            }
+        }
+    ],
+    "evaluationMetrics": {
+        "mape": 4.2,
+        "mape_trend": [
+            {
+                "semester": "Sp'24",
+                "aria": 8.1,
+                "baseline": 14.3,
+                "target": 5.0
+            },
+            {
+                "semester": "Au'24",
+                "aria": 6.4,
+                "baseline": 13.9,
+                "target": 5.0
+            },
+            {
+                "semester": "Sp'25",
+                "aria": 5.2,
+                "baseline": 13.5,
+                "target": 5.0
+            },
+            {
+                "semester": "Au'25",
+                "aria": 4.7,
+                "baseline": 13.1,
+                "target": 5.0
+            },
+            {
+                "semester": "Sp'26",
+                "aria": 4.2,
+                "baseline": 12.8,
+                "target": 5.0
+            }
+        ],
+        "conflict_resolution_rate": 0.87,
+        "conflict_trend": [
+            {
+                "semester": "Sp'24",
+                "aria": 0.62,
+                "baseline": 0.31,
+                "target": 0.90
+            },
+            {
+                "semester": "Au'24",
+                "aria": 0.71,
+                "baseline": 0.33,
+                "target": 0.90
+            },
+            {
+                "semester": "Sp'25",
+                "aria": 0.79,
+                "baseline": 0.30,
+                "target": 0.90
+            },
+            {
+                "semester": "Au'25",
+                "aria": 0.83,
+                "baseline": 0.32,
+                "target": 0.90
+            },
+            {
+                "semester": "Sp'26",
+                "aria": 0.87,
+                "baseline": 0.31,
+                "target": 0.90
+            }
+        ],
+        "acceptance_rate": 0.74,
+        "acceptance_trend": [
+            {
+                "semester": "Sp'24",
+                "aria": 0.52,
+                "singleAgent": 0.44,
+                "passive": 0.38,
+                "manual": 0.29
+            },
+            {
+                "semester": "Au'24",
+                "aria": 0.61,
+                "singleAgent": 0.46,
+                "passive": 0.39,
+                "manual": 0.28
+            },
+            {
+                "semester": "Sp'25",
+                "aria": 0.67,
+                "singleAgent": 0.47,
+                "passive": 0.40,
+                "manual": 0.31
+            },
+            {
+                "semester": "Au'25",
+                "aria": 0.71,
+                "singleAgent": 0.48,
+                "passive": 0.38,
+                "manual": 0.30
+            },
+            {
+                "semester": "Sp'26",
+                "aria": 0.74,
+                "singleAgent": 0.49,
+                "passive": 0.40,
+                "manual": 0.32
+            }
+        ],
+        "rlhf_alignment_score": 0.83,
+        "rlhf_trend": [
+            {
+                "epoch": "E40",
+                "score": 0.61
+            },
+            {
+                "epoch": "E41",
+                "score": 0.65
+            },
+            {
+                "epoch": "E42",
+                "score": 0.70
+            },
+            {
+                "epoch": "E43",
+                "score": 0.74
+            },
+            {
+                "epoch": "E44",
+                "score": 0.76
+            },
+            {
+                "epoch": "E45",
+                "score": 0.79
+            },
+            {
+                "epoch": "E46",
+                "score": 0.81
+            },
+            {
+                "epoch": "E47",
+                "score": 0.83
+            }
+        ],
+        "gini_index": 0.14,
+        "gini_trend": [
+            {
+                "semester": "Sp'24",
+                "value": 0.31,
+                "target": 0.15
+            },
+            {
+                "semester": "Au'24",
+                "value": 0.26,
+                "target": 0.15
+            },
+            {
+                "semester": "Sp'25",
+                "value": 0.21,
+                "target": 0.15
+            },
+            {
+                "semester": "Au'25",
+                "value": 0.17,
+                "target": 0.15
+            },
+            {
+                "semester": "Sp'26",
+                "value": 0.14,
+                "target": 0.15
+            }
+        ],
+        "audit_completeness": 98.6,
+        "audit_trend": [
+            {
+                "semester": "Sp'24",
+                "value": 91.2
+            },
+            {
+                "semester": "Au'24",
+                "value": 94.5
+            },
+            {
+                "semester": "Sp'25",
+                "value": 96.8
+            },
+            {
+                "semester": "Au'25",
+                "value": 97.9
+            },
+            {
+                "semester": "Sp'26",
+                "value": 98.6
+            }
+        ]
+    },
+    "institutionalMemory": [
+        {
+            "id": "MEM-001",
+            "date": "2025-08-12",
+            "context": "CS401 capacity overflow — Fall 2025",
+            "decision": "Upgraded to Hall-A (cap 150); added Friday section",
+            "outcome": "Overflow eliminated; satisfaction +21%; cost overrun +8%",
+            "similarity_score": 0.94,
+            "agent": "HERMES"
+        },
+        {
+            "id": "MEM-002",
+            "date": "2025-01-09",
+            "context": "Faculty double-booking — MBA programme",
+            "decision": "Reassigned Dr. Kapoor to MBA702; rebalanced workload",
+            "outcome": "Zero conflicts post-change; faculty satisfaction maintained",
+            "similarity_score": 0.89,
+            "agent": "HERMES"
+        },
+        {
+            "id": "MEM-003",
+            "date": "2024-08-22",
+            "context": "Lab underutilisation — Physics labs 30%",
+            "decision": "Repurposed 2 labs for Data Science bootcamp",
+            "outcome": "Utilisation rose to 78%; generated ₹4.1L ancillary revenue",
+            "similarity_score": 0.81,
+            "agent": "HERMES"
+        }
+    ]
+}
