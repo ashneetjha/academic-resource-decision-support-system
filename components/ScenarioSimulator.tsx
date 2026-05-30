@@ -250,20 +250,20 @@ export function ScenarioSimulator() {
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <ComparisonCard
                                 label={t("forecast_shift")}
-                                before={result.before.forecast}
-                                after={result.after.forecast}
+                                before={result?.before?.forecast ?? 0}
+                                after={result?.after?.forecast ?? 0}
                                 icon={<TrendingUp size={14} />}
                             />
                             <ComparisonCard
                                 label={t("conflict_change")}
-                                before={result.before.conflicts}
-                                after={result.after.conflicts}
+                                before={result?.before?.conflicts ?? 0}
+                                after={result?.after?.conflicts ?? 0}
                                 icon={<AlertTriangle size={14} />}
                             />
                             <ComparisonCard
                                 label={t("utilisation_delta")}
-                                before={result.before.utilisation * 100}
-                                after={result.after.utilisation * 100}
+                                before={(result?.before?.utilisation ?? 0) * 100}
+                                after={(result?.after?.utilisation ?? 0) * 100}
                                 suffix="%"
                                 icon={<Gauge size={14} />}
                             />

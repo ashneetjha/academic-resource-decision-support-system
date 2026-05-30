@@ -39,7 +39,7 @@ function ContextDropdown({
                 }}
             >
                 <span className="hidden sm:inline" style={{ color: "var(--text-muted)" }}>{label}:</span>
-                <span style={{ color: "var(--text-primary)" }} className="max-w-[80px] truncate">{value}</span>
+                <span style={{ color: "var(--text-primary)" }} className="max-w-[130px] truncate">{value}</span>
                 <ChevronDown size={11} style={{ color: "var(--text-muted)" }} />
             </button>
             <AnimatePresence>
@@ -119,7 +119,7 @@ export function Navbar() {
 
                 {/* Context selectors — only on dashboard pages */}
                 {isInsideDashboard && (
-                    <div className="flex items-center gap-1.5 overflow-x-auto hide-scrollbar flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 flex-wrap sm:flex-nowrap">
                         <ContextDropdown
                             label={t("common.campus")}
                             value={selectedCampus}

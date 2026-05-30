@@ -330,7 +330,7 @@ export default function SystemPage() {
                         <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                             Administrator accept/reject/modify decisions are captured as preference signals by <strong>ADAPT</strong>.
                             These signals retrain the Proximal Policy Optimisation (PPO) reward model every N interactions,
-                            progressively aligning ARIA's recommendations with institutional priorities without retraining
+                            progressively aligning ARIA&apos;s recommendations with institutional priorities without retraining
                             the base forecasting or LLM models.
                         </p>
                     </motion.div>

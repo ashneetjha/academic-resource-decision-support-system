@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Sidebar } from "@/components/Sidebar";
@@ -114,8 +114,6 @@ type TKey = Parameters<ReturnType<typeof useTranslations>>[0];
 
 export default function GovernancePage() {
     const t = useTranslations("governance");
-    const [modelCardExpanded, setModelCardExpanded] = useState(false);
-
     return (
         <div className="flex min-h-screen" style={{ background: "var(--bg-primary)" }}>
             <Sidebar />

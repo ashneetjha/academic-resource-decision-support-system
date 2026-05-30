@@ -51,7 +51,11 @@ const MOCK_EVENTS: AgentTimelineEvent[] = [
 ];
 
 function TimeAgo({ ts }: { ts: string }) {
-    const mins = Math.round((Date.now() - new Date(ts).getTime()) / 60000);
+    const [mins, setMins] = useState(0);
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setMins(Math.round((Date.now() - new Date(ts).getTime()) / 60000));
+    }, [ts]);
     return <span>{mins < 1 ? "just now" : `${mins}m ago`}</span>;
 }
 

@@ -123,7 +123,6 @@ export function ProvenanceGraph() {
             .attr("role", "img")
             .attr("aria-label", (d) => `${d.type} node: ${d.label}`)
             .style("cursor", "pointer")
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .call(d3.drag<SVGGElement, GraphNode>()
                 .on("start", (event, d) => {
                     if (!event.active) sim.alphaTarget(0.3).restart();
@@ -138,6 +137,7 @@ export function ProvenanceGraph() {
                     if (!event.active) sim.alphaTarget(0);
                     d.fx = null;
                     d.fy = null;
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 }) as any);
 
         node.append("circle")
